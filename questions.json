@@ -1,0 +1,90 @@
+{
+  "questions": [
+    {
+      "id": 0,
+      "question": "First Name",
+      "type": "text"
+    },
+    {
+      "id": 1,
+      "question": "How many hours do you spend on coding per day?",
+      "type": "number",
+      "unit": "hours"
+    },
+    {
+      "id": 2,
+      "question": "What is your preferred programming language?",
+      "type": "categorical",
+      "options": ["Go", "JavaScript", "Python", "Java", "Other"]
+    },
+    {
+      "id": 3,
+      "question": "What is your highest level of education?",
+      "type": "categorical",
+      "options": ["High School", "Bachelor's", "Master's", "PhD"]
+    },
+    {
+      "id": 4,
+      "question": "How many projects have you completed in the last year?",
+      "type": "number",
+      "unit": "projects"
+    },
+    {
+      "id": 5,
+      "question": "Which cloud platform do you use the most?",
+      "type": "categorical",
+      "options": ["AWS", "Google Cloud", "Azure", "Other", "None"]
+    },
+    {
+      "id": 6,
+      "question": "What is the main purpose of your coding activities?",
+      "type": "MCQ",
+      "options": {
+        "A": "Professional work",
+        "B": "Personal projects",
+        "C": "Learning and education",
+        "D": "Competitive programming"
+      }
+    },
+    {
+      "id": 7,
+      "question": "On a scale of 1-10, how comfortable are you with Git?",
+      "type": "number",
+      "unit": "scale"
+    },
+    {
+      "id": 8,
+      "question": "Which of the following best describes your coding experience?",
+      "type": "MCQ",
+      "options": {
+        "A": "Beginner",
+        "B": "Intermediate",
+        "C": "Advanced",
+        "D": "Expert"
+      }
+    },
+    {
+      "id": 9,
+      "question": "How often do you contribute to open-source projects?",
+      "type": "categorical",
+      "options": ["Never", "Rarely", "Sometimes", "Often", "Very often"]
+    },
+    {
+      "id": 10,
+      "question": "Which development methodology do you prefer?",
+      "type": "MCQ",
+      "options": {
+        "A": "Agile",
+        "B": "Waterfall",
+        "C": "Scrum",
+        "D": "Kanban"
+      }
+    },
+    {
+      "id": 11,
+      "question": "Most hours in a game.",
+      "type": "number"
+    }
+  ]
+}
+

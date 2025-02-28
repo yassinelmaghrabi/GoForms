@@ -1,0 +1,40 @@
+package templates
+
+import (
+	"fmt"
+	"survey/internal/models"
+)
+
+templ Form(questions []models.HtmlQuestion) {
+	<form method="POST" action="/submit">
+		for _, q := range questions {
+			{{ questionfor := fmt.Sprintf("question_%d", q.Question.ID) }}
+			<div class="scheme-dark m-5 pt-2 border-t-2 border-white">
+				<label class="text-white font-bold " for={ questionfor }>
+					{ fmt.Sprintf("%d. %s",q.Question.ID,q.Question.Question) }
+				</label>
+				@templ.Raw(q.HTML)
+			</div>
+		}
+		<button
+			class="rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white"
+			type="submit"
+		>Submit</button>
+	</form>
+}
+
+templ Survey(questions []models.HtmlQuestion) {
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8"/>
+			<title>Survey</title>
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+			<meta name="language" content="English"/>
+			<link rel="stylesheet" href="/static/output.css"/>
+		</head>
+		<body class="bg-gray-950 font-serif">
+			@Form(questions)
+		</body>
+	</html>
+}

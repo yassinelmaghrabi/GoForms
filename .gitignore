@@ -1,0 +1,28 @@
+
+# Build and IDE files
+*.log
+*.swp
+*.swo
+*.tmp
+.vscode/
+.idea/
+*.iml
+
+# Environment variables and credentials
+.env
+.env*.local
+config.yaml
+
+# Dependency directories (if using vendor)
+vendor/
+
+# Temporary files
+*.bak
+*.test
+*.cache
+
+# MongoDB dump files
+*.bson
+*.json
+*.gz
+
