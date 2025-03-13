@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -32,6 +33,8 @@ type Question struct {
 	Question string      `json:"question"`
 	Type     string      `json:"type"`
 	Unit     string      `json:"unit,omitempty"`
+	Page     string      `json:"page,omitempty"`
+	Language string      `json:"language,omitempty"`
 	Options  interface{} `json:"options,omitempty"`
 }
 
@@ -42,6 +45,11 @@ type HtmlQuestion struct {
 
 type QuestionsData struct {
 	Questions []Question `json:"questions"`
+}
+
+type Option struct {
+	Key   string
+	Value interface{}
 }
 
 func generateHTML(q Question) string {
@@ -66,10 +74,19 @@ func generateHTML(q Question) string {
 			return ""
 		}
 
+		var optionSlice []Option
+		for key, value := range options {
+			optionSlice = append(optionSlice, Option{Key: key, Value: value})
+		}
+
+		sort.Slice(optionSlice, func(i, j int) bool {
+			return optionSlice[i].Key < optionSlice[j].Key
+		})
+
 		var sb strings.Builder
 		sb.WriteString("<ul>")
-		for key, value := range options {
-			sb.WriteString(fmt.Sprintf(`<li class="block text-white my-3"><input class="accent-pink-500" type="radio" name="question_%d" value="%s"> %s</li>`, q.ID, key, value))
+		for _, opt := range optionSlice {
+			sb.WriteString(fmt.Sprintf(`<li class="block text-white my-3"><input class="accent-pink-500" type="radio" name="question_%d" value="%s"> %s</li>`, q.ID, opt.Key, opt.Value))
 		}
 		sb.WriteString("</ul>")
 		return sb.String()

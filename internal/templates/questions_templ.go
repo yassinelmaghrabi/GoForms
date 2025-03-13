@@ -13,7 +13,7 @@ import (
 	"survey/internal/models"
 )
 
-func Form(questions []models.HtmlQuestion) templ.Component {
+func Form(questions []models.HtmlQuestion, finalPage bool, nextPage int) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -34,39 +34,55 @@ func Form(questions []models.HtmlQuestion) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<form method=\"POST\" action=\"/submit\">")
+
+		nextPageUrl := ""
+		if !finalPage {
+			nextPageUrl = fmt.Sprintf("/page/%d", nextPage)
+		} else {
+			nextPageUrl = "/submit"
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 1, "<form method=\"POST\" action=\"")
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		var templ_7745c5c3_Var2 templ.SafeURL = templ.SafeURL(nextPageUrl)
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(string(templ_7745c5c3_Var2)))
+		if templ_7745c5c3_Err != nil {
+			return templ_7745c5c3_Err
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, q := range questions {
 			questionfor := fmt.Sprintf("question_%d", q.Question.ID)
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 2, "<div class=\"scheme-dark m-5 pt-2 border-t-2 border-white\"><label class=\"text-white font-bold \" for=\"")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(questionfor)
-			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/templates/questions.templ`, Line: 13, Col: 58}
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "\">")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 3, "<div class=\"scheme-dark m-5 pt-2 border-t-2 border-white\"><label class=\"text-white font-bold \" for=\"")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%d. %s", q.Question.ID, q.Question.Question))
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(questionfor)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/templates/questions.templ`, Line: 14, Col: 62}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/templates/questions.templ`, Line: 21, Col: 58}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "</label>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 4, "\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(fmt.Sprintf("%s", q.Question.Question))
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `internal/templates/questions.templ`, Line: 22, Col: 45}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</label>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -74,12 +90,23 @@ func Form(questions []models.HtmlQuestion) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 5, "</div>")
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "</div>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 6, "<button class=\"rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white\" type=\"submit\">Submit</button></form>")
+		if finalPage {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<button class=\"rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white\" type=\"submit\">Submit</button>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		} else {
+			templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<button class=\"rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white\" type=\"submit\">Next</button>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+		}
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 9, "</form>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -87,7 +114,7 @@ func Form(questions []models.HtmlQuestion) templ.Component {
 	})
 }
 
-func Survey(questions []models.HtmlQuestion) templ.Component {
+func Survey(questions []models.HtmlQuestion, finalPage bool, pageNum int) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -103,20 +130,20 @@ func Survey(questions []models.HtmlQuestion) templ.Component {
 			}()
 		}
 		ctx = templ.InitializeContext(ctx)
-		templ_7745c5c3_Var4 := templ.GetChildren(ctx)
-		if templ_7745c5c3_Var4 == nil {
-			templ_7745c5c3_Var4 = templ.NopComponent
+		templ_7745c5c3_Var5 := templ.GetChildren(ctx)
+		if templ_7745c5c3_Var5 == nil {
+			templ_7745c5c3_Var5 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<!doctype html><html><head><meta charset=\"UTF-8\"><title>Survey</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"language\" content=\"English\"><link rel=\"stylesheet\" href=\"/static/output.css\"><style>\n    body {\n      background-color: #08122d;\n    }\n\n    footer {\n      padding: 10px;\n      margin-top: 10px;\n      background-color: #1f2937;\n    }\n\n    footer a {\n      color: #3b82f6;\n      text-decoration: none;\n    }\n\n    footer p {\n      color: white;\n    }\n\n    .banner {\n      width: 100%;\n      height: 400px;\n      background: url('/static/banner.jpg') center/cover no-repeat;\n      border-radius: 20px;\n      overflow: hidden;\n    }\n\n    .title-container {\n      text-align: center;\n      padding: 20px;\n    }\n\n    .title {\n      font-size: 4rem;\n      font-weight: bold;\n      color: white;\n    }\n\n    .subtitle {\n      font-size: 1rem;\n      color: #4a5568;\n    }\n\n    .subsubtitle {\n      font-size: 0.5rem;\n      color: #20252d;\n    }\n  </style></head><body class=\"bg-gray-950 font-serif\"><div class=\"banner\"></div><div class=\"title-container\"><h1 class=\"title\">Java vs Python vs R</h1><p class=\"subtitle\">We did not choose this topic</p><p class=\"subsubtitle\">sorry for the awful css</p></div>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 10, "<!doctype html><html><head><meta charset=\"UTF-8\"><title>Survey</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"language\" content=\"English\"><link rel=\"stylesheet\" href=\"/static/output.css\"><style>\n    body {\n      background-color: #08122d;\n    }\n\n    footer {\n      padding: 10px;\n      margin-top: 10px;\n      background-color: #1f2937;\n    }\n\n    footer a {\n      color: #3b82f6;\n      text-decoration: none;\n    }\n\n    footer p {\n      color: white;\n    }\n\n    .banner {\n      width: 100%;\n      height: 400px;\n      background: url('/static/banner.jpg') center/cover no-repeat;\n      border-radius: 20px;\n      overflow: hidden;\n    }\n\n    .title-container {\n      text-align: center;\n      padding: 20px;\n    }\n\n    .title {\n      font-size: 4rem;\n      font-weight: bold;\n      color: white;\n    }\n\n    .subtitle {\n      font-size: 1rem;\n      color: #4a5568;\n    }\n\n    .subsubtitle {\n      font-size: 0.5rem;\n      color: #20252d;\n    }\n  </style></head><body class=\"bg-gray-950 font-serif\"><div class=\"banner\"></div><div class=\"title-container\"><h1 class=\"title\">Java vs Python vs R</h1><p class=\"subtitle\">We did not choose this topic</p><p class=\"subsubtitle\">sorry for the awful css</p></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Form(questions).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Form(questions, finalPage, pageNum+1).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<footer class=\"text-center text-gray-400 py-4\"><p>Made by Elmaghrabi. For 2025 Survey.</p><p>GoForms: <a href=\"https://github.com/yassinelmaghrabi/goforms\" class=\"text-blue-400\">GitHub</a></p></footer></body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 11, "<footer class=\"text-center text-gray-400 py-4\"><p>Made by Elmaghrabi. For 2025 Survey.</p><p>GoForms: <a href=\"https://github.com/yassinelmaghrabi/goforms\" class=\"text-blue-400\">GitHub</a></p></footer></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,38 +1,50 @@
 package templates
 
 import (
-	"fmt"
-	"survey/internal/models"
+"fmt"
+"survey/internal/models"
 )
 
-templ Form(questions []models.HtmlQuestion) {
-	<form method="POST" action="/submit">
-		for _, q := range questions {
-			{{ questionfor := fmt.Sprintf("question_%d", q.Question.ID) }}
-			<div class="scheme-dark m-5 pt-2 border-t-2 border-white">
-				<label class="text-white font-bold " for={ questionfor }>
-					{ fmt.Sprintf("%d. %s",q.Question.ID,q.Question.Question) }
-				</label>
-				@templ.Raw(q.HTML)
-			</div>
-		}
-		<button
-			class="rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white"
-			type="submit"
-		>Submit</button>
-	</form>
+templ Form(questions []models.HtmlQuestion, finalPage bool, nextPage int) {
+{{
+nextPageUrl := ""
+if !finalPage {
+nextPageUrl = fmt.Sprintf("/page/%d", nextPage)
+} else {
+nextPageUrl = "/submit"
+}
+}}
+<form method="POST" action={ templ.SafeURL(nextPageUrl) }>
+  for _, q := range questions {
+  {{ questionfor := fmt.Sprintf("question_%d", q.Question.ID) }}
+  <div class="scheme-dark m-5 pt-2 border-t-2 border-white">
+    <label class="text-white font-bold " for={ questionfor }>
+      { fmt.Sprintf("%s",q.Question.Question) }
+    </label>
+    @templ.Raw(q.HTML)
+  </div>
+  }
+  if finalPage {
+  <button class="rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white"
+    type="submit">Submit</button>
+  } else {
+  <button class="rounded-md border-2 border-blue-950 hover:border-blue-500 bg-blue-900 px-5 py-2 m-5 text-white"
+    type="submit">Next</button>
+  }
+</form>
 }
 
-templ Survey(questions []models.HtmlQuestion) {
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="UTF-8"/>
-			<title>Survey</title>
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
-			<meta name="language" content="English"/>
-			<link rel="stylesheet" href="/static/output.css"/>
-			<style>
+templ Survey(questions []models.HtmlQuestion, finalPage bool, pageNum int) {
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Survey</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="language" content="English" />
+  <link rel="stylesheet" href="/static/output.css" />
+  <style>
     body {
       background-color: #08122d;
     }
@@ -81,19 +93,21 @@ templ Survey(questions []models.HtmlQuestion) {
       color: #20252d;
     }
   </style>
-		</head>
-		<body class="bg-gray-950 font-serif">
-			<div class="banner"></div>
-			<div class="title-container">
-				<h1 class="title">Java vs Python vs R</h1>
-				<p class="subtitle">We did not choose this topic</p>
-				<p class="subsubtitle">sorry for the awful css</p>
-			</div>
-			@Form(questions)
-			<footer class="text-center text-gray-400 py-4">
-				<p>Made by Elmaghrabi. For 2025 Survey.</p>
-				<p>GoForms: <a href="https://github.com/yassinelmaghrabi/goforms" class="text-blue-400">GitHub</a></p>
-			</footer>
-		</body>
-	</html>
+</head>
+
+<body class="bg-gray-950 font-serif">
+  <div class="banner"></div>
+  <div class="title-container">
+    <h1 class="title">Java vs Python vs R</h1>
+    <p class="subtitle">We did not choose this topic</p>
+    <p class="subsubtitle">sorry for the awful css</p>
+  </div>
+  @Form(questions, finalPage, pageNum+1)
+  <footer class="text-center text-gray-400 py-4">
+    <p>Made by Elmaghrabi. For 2025 Survey.</p>
+    <p>GoForms: <a href="https://github.com/yassinelmaghrabi/goforms" class="text-blue-400">GitHub</a></p>
+  </footer>
+</body>
+
+</html>
 }
