@@ -108,7 +108,7 @@ func Survey(questions []models.HtmlQuestion) templ.Component {
 			templ_7745c5c3_Var4 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<!doctype html><html><head><meta charset=\"UTF-8\"><title>Survey</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"language\" content=\"English\"><link rel=\"stylesheet\" href=\"/static/output.css\"></head><body class=\"bg-gray-950 font-serif\">")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 7, "<!doctype html><html><head><meta charset=\"UTF-8\"><title>Survey</title><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"><meta name=\"language\" content=\"English\"><link rel=\"stylesheet\" href=\"/static/output.css\"><style>\n    body {\n      background-color: #08122d;\n    }\n\n    footer {\n      padding: 10px;\n      margin-top: 10px;\n      background-color: #1f2937;\n    }\n\n    footer a {\n      color: #3b82f6;\n      text-decoration: none;\n    }\n\n    footer p {\n      color: white;\n    }\n\n    .banner {\n      width: 100%;\n      height: 400px;\n      background: url('/static/banner.jpg') center/cover no-repeat;\n      border-radius: 20px;\n      overflow: hidden;\n    }\n\n    .title-container {\n      text-align: center;\n      padding: 20px;\n    }\n\n    .title {\n      font-size: 4rem;\n      font-weight: bold;\n      color: white;\n    }\n\n    .subtitle {\n      font-size: 1rem;\n      color: #4a5568;\n    }\n\n    .subsubtitle {\n      font-size: 0.5rem;\n      color: #20252d;\n    }\n  </style></head><body class=\"bg-gray-950 font-serif\"><div class=\"banner\"></div><div class=\"title-container\"><h1 class=\"title\">Java vs Python vs R</h1><p class=\"subtitle\">We did not choose this topic</p><p class=\"subsubtitle\">sorry for the awful css</p></div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -116,7 +116,7 @@ func Survey(questions []models.HtmlQuestion) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "</body></html>")
+		templ_7745c5c3_Err = templruntime.WriteString(templ_7745c5c3_Buffer, 8, "<footer class=\"text-center text-gray-400 py-4\"><p>Made by Elmaghrabi. For 2025 Survey.</p><p>GoForms: <a href=\"https://github.com/yassinelmaghrabi/goforms\" class=\"text-blue-400\">GitHub</a></p></footer></body></html>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

@@ -1,90 +1,395 @@
 {
   "questions": [
     {
-      "id": 0,
-      "question": "First Name",
-      "type": "text"
-    },
-    {
       "id": 1,
-      "question": "How many hours do you spend on coding per day?",
-      "type": "number",
-      "unit": "hours"
+      "question": "What is your age?",
+      "type": "categorical",
+      "options": ["18-24", "25-34", "35-44", "45+"]
     },
     {
       "id": 2,
-      "question": "What is your preferred programming language?",
-      "type": "categorical",
-      "options": ["Go", "JavaScript", "Python", "Java", "Other"]
+      "question": "What is your gender?",
+      "type": "MCQ",
+      "options": {
+        "A": "Male",
+        "B": "Female"
+      }
     },
     {
       "id": 3,
-      "question": "What is your highest level of education?",
-      "type": "categorical",
-      "options": ["High School", "Bachelor's", "Master's", "PhD"]
+      "question": "What is your current major or job field?",
+      "type": "text"
     },
     {
       "id": 4,
-      "question": "How many projects have you completed in the last year?",
-      "type": "number",
-      "unit": "projects"
+      "question": "What is your current role?",
+      "type": "categorical",
+      "options": ["Student", "Software Engineer", "Data Scientist", "Analyst", "Researcher", "Cyber Security Expert", "DevOps", "Other"]
     },
     {
       "id": 5,
-      "question": "Which cloud platform do you use the most?",
-      "type": "categorical",
-      "options": ["AWS", "Google Cloud", "Azure", "Other", "None"]
+      "question": "How many years of programming experience do you have?",
+      "type": "MCQ",
+      "options": {
+        "A": "<1 year",
+        "B": "1-3 years",
+        "C": "4-6 years",
+        "D": ">7 years"
+      }
     },
     {
       "id": 6,
-      "question": "What is the main purpose of your coding activities?",
+      "question": "Which programming language have you used extensively?",
       "type": "MCQ",
       "options": {
-        "A": "Professional work",
-        "B": "Personal projects",
-        "C": "Learning and education",
-        "D": "Competitive programming"
+        "A": "Python",
+        "B": "R",
+        "C": "Java",
+        "D": "Other"
       }
     },
     {
       "id": 7,
-      "question": "On a scale of 1-10, how comfortable are you with Git?",
-      "type": "number",
-      "unit": "scale"
+      "question": "On a scale of 1 to 5 how satisfied are you with the community support for Python?",
+      "type": "categorical",
+      "options": ["1", "2", "3", "4", "5"]
     },
     {
       "id": 8,
-      "question": "Which of the following best describes your coding experience?",
-      "type": "MCQ",
-      "options": {
-        "A": "Beginner",
-        "B": "Intermediate",
-        "C": "Advanced",
-        "D": "Expert"
-      }
+      "question": "What are the biggest challenges you face when optimizing performance in Python?",
+      "type": "text"
     },
     {
       "id": 9,
-      "question": "How often do you contribute to open-source projects?",
-      "type": "categorical",
-      "options": ["Never", "Rarely", "Sometimes", "Often", "Very often"]
+      "question": "What were the biggest challenges in learning Python?",
+      "type": "text"
     },
     {
       "id": 10,
-      "question": "Which development methodology do you prefer?",
-      "type": "MCQ",
-      "options": {
-        "A": "Agile",
-        "B": "Waterfall",
-        "C": "Scrum",
-        "D": "Kanban"
-      }
+      "question": "On a scale of 1 to 5 how satisfied are you with the community support for Java?",
+      "type": "categorical",
+      "options": ["1", "2", "3", "4", "5"]
     },
     {
       "id": 11,
-      "question": "Most hours in a game.",
-      "type": "number"
+      "question": "What are the biggest challenges you face when optimizing performance in Java?",
+      "type": "text"
+    },
+    {
+      "id": 12,
+      "question": "What were the biggest challenges in learning Java?",
+      "type": "text"
+    },
+    {
+      "id": 13,
+      "question": "On a scale of 1 to 5 how satisfied are you with the community support for R?",
+      "type": "categorical",
+      "options": ["1", "2", "3", "4", "5"]
+    },
+    {
+      "id": 14,
+      "question": "What are the biggest challenges you face when using R?",
+      "type": "text"
+    },
+    {
+      "id": 15,
+      "question": "What were the biggest challenges in learning R?",
+      "type": "text"
+    },
+    {
+      "id": 16,
+      "question": "Which language do you use most frequently?",
+      "type": "MCQ",
+      "options": {
+        "A": "Python",
+        "B": "R",
+        "C": "Java",
+        "D": "All equally"
+      }
+    },
+    {
+      "id": 17,
+      "question": "Which language do you prefer for \"Data Science & Machine Learning\"?",
+      "type": "MCQ",
+      "options": {
+        "A": "Python",
+        "B": "Java",
+        "C": "R",
+        "D": "Other"
+      }
+    },
+    {
+      "id": 18,
+      "question": "Which language do you prefer for \"Web Development\"?",
+      "type": "MCQ",
+      "options": {
+        "A": "Python",
+        "B": "Java",
+        "C": "Other"
+      }
+    },
+    {
+      "id": 19,
+      "question": "Which language do you prefer for \"Mobile App Development\"?",
+      "type": "MCQ",
+      "options": {
+        "A": "Java",
+        "B": "Other"
+      }
+    },
+    {
+      "id": 20,
+      "question": "Which language do you prefer for \"Enterprise Applications\"?",
+      "type": "MCQ",
+      "options": {
+        "A": "Python",
+        "B": "Java",
+        "C": "R",
+        "D": "Other"
+      }
+    },
+    {
+      "id": 21,
+      "question": "Which language do you prefer for \"Statistical Analysis\"?",
+      "type": "MCQ",
+      "options": {
+        "A": "Python",
+        "B": "Java",
+        "C": "R",
+        "D": "Other"
+      }
+    },
+    {
+      "id": 22,
+      "question": "On a scale of 1 to 5 how often do you switch between these languages?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 23,
+      "question": "Which language do you perceive as the most efficient for your tasks?",
+      "type": "MCQ",
+      "options": {
+        "A": "Python",
+        "B": "R",
+        "C": "Java",
+        "D": "Other"
+      }
+    },
+    {
+      "id": 24,
+      "question": "On a scale of 1 to 5 how would you rate the execution speed of Python?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 25,
+      "question": "On a scale of 1 to 5 how would you rate the execution speed of R?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 26,
+      "question": "On a scale of 1 to 5 how would you rate the execution speed of Java?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 27,
+      "question": "On a scale of 1 to 5 how would you rate the ease of use of Python?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 28,
+      "question": "On a scale of 1 to 5 how would you rate the ease of use of R?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 29,
+      "question": "On a scale of 1 to 5 how would you rate the ease of use of Java?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 30,
+      "question": "On a scale of 1 to 5 how would you rate the official documentation of Python?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 31,
+      "question": "On a scale of 1 to 5 how would you rate the official documentation of R?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 32,
+      "question": "On a scale of 1 to 5 how would you rate the official documentation of Java?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 33,
+      "question": "On a scale of 1 to 5 how would you rate the concurrency features of Python?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 34,
+      "question": "On a scale of 1 to 5 how would you rate the concurrency features of R?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 35,
+      "question": "On a scale of 1 to 5 how would you rate the concurrency features of Java?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 36,
+      "question": "On a scale of 1 to 5 how would you rate the readability of Python?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 37,
+      "question": "On a scale of 1 to 5 how would you rate the readability of R?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 38,
+      "question": "On a scale of 1 to 5 how would you rate the readability of Java?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 39,
+      "question": "On a scale of 1-5 how often do you seek help from online resources (excluding official documentation)?",
+      "type": "MCQ",
+      "options": {
+        "A": "1",
+        "B": "2",
+        "C": "3",
+        "D": "4",
+        "E": "5"
+      }
+    },
+    {
+      "id": 40,
+      "question": "Which language do you think will dominate the job market in the next 5 years?",
+      "type": "categorical",
+      "options": ["Python", "R", "Java"]
+    },
+    {
+      "id": 41,
+      "question": "If you could only use one of these three languages for all future projects, which would you choose and why?",
+      "type": "categorical",
+      "options": ["Python", "R", "Java"]
+    },
+    {
+      "id": 42,
+      "question": "Thank you for filling out our form!",
+      "type": "text"
     }
   ]
 }
-

@@ -1,42 +1,31 @@
 package main
 
 import (
-	"context"
+	"database/sql"
+	"encoding/json"
 	"fmt"
 	"github.com/joho/godotenv"
 	"log"
 	"net/http"
-	"os"
 	"survey/internal/models"
 	"survey/internal/templates"
-
 	"time"
 
-	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
-	"go.mongodb.org/mongo-driver/mongo/options"
+	_ "github.com/mattn/go-sqlite3"
 )
 
-var client *mongo.Client
-var responsesCollection *mongo.Collection
+var db *sql.DB
 
 func main() {
 	var err error
 	godotenv.Load()
-	mongoURI := os.Getenv("MONGODB_URI")
-	if mongoURI == "" {
-		log.Fatal("MONGODB_URI environment variable not set")
-	}
-
-	clientOptions := options.Client().ApplyURI(mongoURI)
-	client, err = mongo.Connect(context.Background(), clientOptions)
+	db, err = sql.Open("sqlite3", "survey.db")
 	if err != nil {
-		log.Fatal("Failed to connect to MongoDB:", err)
+		log.Fatal("Failed to connect to SQLite:", err)
 	}
-	defer client.Disconnect(context.Background())
+	defer db.Close()
 
-	db := client.Database("survey")
-	responsesCollection = db.Collection("responses")
+	createTable()
 
 	serveStaticFiles()
 	http.HandleFunc("/", formHandler)
@@ -44,6 +33,21 @@ func main() {
 
 	fmt.Println("Server started at http://localhost:8080")
 	http.ListenAndServe("0.0.0.0:3000", nil)
+}
+
+func createTable() {
+	query := `CREATE TABLE IF NOT EXISTS responses (
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		name TEXT,
+		answers TEXT,
+		created_at TIMESTAMP,
+    ip TEXT
+	)`
+
+	_, err := db.Exec(query)
+	if err != nil {
+		log.Fatal("Failed to create table:", err)
+	}
 }
 
 func formHandler(w http.ResponseWriter, r *http.Request) {
@@ -64,7 +68,10 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	r.ParseForm()
-
+	ip := r.RemoteAddr
+	if forwarded := r.Header.Get("X-Forwarded-For"); forwarded != "" {
+		ip = forwarded
+	}
 	name := r.FormValue("question_0")
 
 	answers := make(map[string]string)
@@ -75,16 +82,17 @@ func submitHandler(w http.ResponseWriter, r *http.Request) {
 		answers[key] = values[0]
 	}
 
-	responseDoc := bson.M{
-		"name":       name,
-		"answers":    answers,
-		"created_at": time.Now(),
+	answersJson, err := json.Marshal(answers)
+	if err != nil {
+		http.Error(w, "Failed to encode data", http.StatusInternalServerError)
+		log.Println("Error encoding data to JSON:", err)
+		return
 	}
 
-	_, err := responsesCollection.InsertOne(context.Background(), responseDoc)
+	_, err = db.Exec("INSERT INTO responses (name, answers, created_at, ip) VALUES (?, ?, ?, ?)", name, string(answersJson), time.Now(), ip)
 	if err != nil {
 		http.Error(w, "Failed to insert data", http.StatusInternalServerError)
-		log.Println("Error inserting data into MongoDB:", err)
+		log.Println("Error inserting data into SQLite:", err)
 		return
 	}
 

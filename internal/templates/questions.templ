@@ -32,9 +32,68 @@ templ Survey(questions []models.HtmlQuestion) {
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<meta name="language" content="English"/>
 			<link rel="stylesheet" href="/static/output.css"/>
+			<style>
+    body {
+      background-color: #08122d;
+    }
+
+    footer {
+      padding: 10px;
+      margin-top: 10px;
+      background-color: #1f2937;
+    }
+
+    footer a {
+      color: #3b82f6;
+      text-decoration: none;
+    }
+
+    footer p {
+      color: white;
+    }
+
+    .banner {
+      width: 100%;
+      height: 400px;
+      background: url('/static/banner.jpg') center/cover no-repeat;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .title-container {
+      text-align: center;
+      padding: 20px;
+    }
+
+    .title {
+      font-size: 4rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      color: #4a5568;
+    }
+
+    .subsubtitle {
+      font-size: 0.5rem;
+      color: #20252d;
+    }
+  </style>
 		</head>
 		<body class="bg-gray-950 font-serif">
+			<div class="banner"></div>
+			<div class="title-container">
+				<h1 class="title">Java vs Python vs R</h1>
+				<p class="subtitle">We did not choose this topic</p>
+				<p class="subsubtitle">sorry for the awful css</p>
+			</div>
 			@Form(questions)
+			<footer class="text-center text-gray-400 py-4">
+				<p>Made by Elmaghrabi. For 2025 Survey.</p>
+				<p>GoForms: <a href="https://github.com/yassinelmaghrabi/goforms" class="text-blue-400">GitHub</a></p>
+			</footer>
 		</body>
 	</html>
 }
