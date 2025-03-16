@@ -72,10 +72,10 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if r.Method == http.MethodPost {
-		log.Println("Session values after GET in POST:")
-		for k, v := range session.Values {
-			log.Printf("Key: %v, Value: %v (Type: %T)", k, v, v)
-		}
+		//log.Println("Session values after GET in POST:")
+		//for k, v := range session.Values {
+		//log.Printf("Key: %v, Value: %v (Type: %T)", k, v, v)
+		//}
 
 		r.ParseForm()
 		for key, values := range r.Form {

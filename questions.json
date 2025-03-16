@@ -1,16 +1,9 @@
 {
   "questions": [
     {
-      "id": 0,
-      "page": "1",
-      "question": "Name ",
-      "type": "text",
-      "language": "any"
-    },
-    {
       "id": 1,
       "page": "1",
-      "question": "What is your age? ",
+      "question": "What is your age? ",
       "type": "categorical",
       "language": "any",
       "options": ["18-24", "25-34", "35-44", "45+"]
@@ -18,7 +11,7 @@
     {
       "id": 2,
       "page": "1",
-      "question": "What is your gender? ",
+      "question": "What is your gender? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -29,14 +22,14 @@
     {
       "id": 3,
       "page": "1",
-      "question": "What is your current major or job field? ",
+      "question": "What is your current major or job field? ",
       "type": "text",
       "language": "any"
     },
     {
       "id": 4,
       "page": "1",
-      "question": "What is your current role? ",
+      "question": "What is your current role? ",
       "type": "categorical",
       "language": "any",
       "options": ["Student", "Software Engineer", "Data Scientist", "Analyst", "Researcher", "Cyber Security Expert", "DevOps", "Other"]
@@ -44,7 +37,7 @@
     {
       "id": 5,
       "page": "1",
-      "question": "How many years of programming experience do you have? ",
+      "question": "How many years of programming experience do you have? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -57,7 +50,7 @@
     {
       "id": 6,
       "page": "1",
-      "question": "Which programming language have you used extensively? ",
+      "question": "Which programming language have you used extensively? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -69,7 +62,7 @@
     {
       "id": 7,
       "page": "2",
-      "question": "On a scale of 1 to 5 how satisfied are you with the community support for Python? ",
+      "question": "On a scale of 1 to 5 how satisfied are you with the community support for Python? ",
       "type": "categorical",
       "language": "Python",
       "options": ["1", "2", "3", "4", "5"]
@@ -77,21 +70,21 @@
     {
       "id": 8,
       "page": "2",
-      "question": "What are the biggest challenges you face when optimizing performance in Python? ",
+      "question": "What are the biggest challenges you face when optimizing performance in Python? ",
       "type": "text",
       "language": "Python"
     },
     {
       "id": 9,
       "page": "2",
-      "question": "What were the biggest challenges in learning Python? 樂",
+      "question": "What were the biggest challenges in learning Python? ",
       "type": "text",
       "language": "Python"
     },
     {
       "id": 10,
       "page": "2",
-      "question": "On a scale of 1 to 5 how satisfied are you with the community support for Java? ☕",
+      "question": "On a scale of 1 to 5 how satisfied are you with the community support for Java? ",
       "type": "categorical",
       "language": "Java",
       "options": ["1", "2", "3", "4", "5"]
@@ -99,21 +92,21 @@
     {
       "id": 11,
       "page": "2",
-      "question": "What are the biggest challenges you face when optimizing performance in Java? ",
+      "question": "What are the biggest challenges you face when optimizing performance in Java? ",
       "type": "text",
       "language": "Java"
     },
     {
       "id": 12,
       "page": "2",
-      "question": "What were the biggest challenges in learning Java? 樂",
+      "question": "What were the biggest challenges in learning Java? ",
       "type": "text",
       "language": "Java"
     },
     {
       "id": 13,
       "page": "2",
-      "question": "On a scale of 1 to 5 how satisfied are you with the community support for R? ",
+      "question": "On a scale of 1 to 5 how satisfied are you with the community support for R? ",
       "type": "categorical",
       "language": "R",
       "options": ["1", "2", "3", "4", "5"]
@@ -121,21 +114,21 @@
     {
       "id": 14,
       "page": "2",
-      "question": "What are the biggest challenges you face when using R? ",
+      "question": "What are the biggest challenges you face when using R? ",
       "type": "text",
       "language": "R"
     },
     {
       "id": 15,
       "page": "2",
-      "question": "What were the biggest challenges in learning R? 樂",
+      "question": "What were the biggest challenges in learning R? ",
       "type": "text",
       "language": "R"
     },
     {
       "id": 16,
       "page": "3",
-      "question": "Which language do you use most frequently? ",
+      "question": "Which language do you use most frequently? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -148,7 +141,7 @@
     {
       "id": 17,
       "page": "3",
-      "question": "Which language do you prefer for \"Data Science & Machine Learning\"? 烙",
+      "question": "Which language do you prefer for \"Data Science & Machine Learning\"? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -161,7 +154,7 @@
     {
       "id": 18,
       "page": "3",
-      "question": "Which language do you prefer for \"Web Development\"? ",
+      "question": "Which language do you prefer for \"Web Development\"? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -173,7 +166,7 @@
     {
       "id": 19,
       "page": "3",
-      "question": "Which language do you prefer for \"Mobile App Development\"? ",
+      "question": "Which language do you prefer for \"Mobile App Development\"? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -184,7 +177,7 @@
     {
       "id": 20,
       "page": "3",
-      "question": "Which language do you prefer for \"Enterprise Applications\"? ",
+      "question": "Which language do you prefer for \"Enterprise Applications\"? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -197,7 +190,7 @@
     {
       "id": 21,
       "page": "3",
-      "question": "Which language do you prefer for \"Statistical Analysis\"? ",
+      "question": "Which language do you prefer for \"Statistical Analysis\"? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -210,7 +203,7 @@
     {
       "id": 22,
       "page": "4",
-      "question": "On a scale of 1 to 5 how often do you switch between these languages? ",
+      "question": "On a scale of 1 to 5 how often do you switch between these languages? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -224,7 +217,7 @@
     {
       "id": 23,
       "page": "4",
-      "question": "Which language do you perceive as the most efficient for your tasks? ⚡",
+      "question": "Which language do you perceive as the most efficient for your tasks? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -236,8 +229,8 @@
     },
     {
       "id": 24,
-      "page": "4",
-      "question": "On a scale of 1 to 5 how would you rate the execution speed of Python? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the execution speed of Python? ",
       "type": "MCQ",
       "language": "Python",
       "options": {
@@ -250,8 +243,8 @@
     },
     {
       "id": 25,
-      "page": "4",
-      "question": "On a scale of 1 to 5 how would you rate the execution speed of R? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the execution speed of R? ",
       "type": "MCQ",
       "language": "R",
       "options": {
@@ -264,8 +257,8 @@
     },
     {
       "id": 26,
-      "page": "4",
-      "question": "On a scale of 1 to 5 how would you rate the execution speed of Java? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the execution speed of Java? ",
       "type": "MCQ",
       "language": "Java",
       "options": {
@@ -279,7 +272,7 @@
     {
       "id": 27,
       "page": "5",
-      "question": "On a scale of 1 to 5 how would you rate the ease of use of Python? ",
+      "question": "On a scale of 1 to 5 how would you rate the ease of use of Python? ",
       "type": "MCQ",
       "language": "Python",
       "options": {
@@ -293,7 +286,7 @@
     {
       "id": 28,
       "page": "5",
-      "question": "On a scale of 1 to 5 how would you rate the ease of use of R? ",
+      "question": "On a scale of 1 to 5 how would you rate the ease of use of R? ",
       "type": "MCQ",
       "language": "R",
       "options": {
@@ -307,7 +300,7 @@
     {
       "id": 29,
       "page": "5",
-      "question": "On a scale of 1 to 5 how would you rate the ease of use of Java? ",
+      "question": "On a scale of 1 to 5 how would you rate the ease of use of Java? ",
       "type": "MCQ",
       "language": "Java",
       "options": {
@@ -320,8 +313,8 @@
     },
     {
       "id": 30,
-      "page": "6",
-      "question": "On a scale of 1 to 5 how would you rate the official documentation of Python? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the official documentation of Python? ",
       "type": "MCQ",
       "language": "Python",
       "options": {
@@ -334,8 +327,8 @@
     },
     {
       "id": 31,
-      "page": "6",
-      "question": "On a scale of 1 to 5 how would you rate the official documentation of R? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the official documentation of R? ",
       "type": "MCQ",
       "language": "R",
       "options": {
@@ -348,8 +341,8 @@
     },
     {
       "id": 32,
-      "page": "6",
-      "question": "On a scale of 1 to 5 how would you rate the official documentation of Java? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the official documentation of Java? ",
       "type": "MCQ",
       "language": "Java",
       "options": {
@@ -362,8 +355,8 @@
     },
     {
       "id": 33,
-      "page": "7",
-      "question": "On a scale of 1 to 5 how would you rate the concurrency features of Python? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the concurrency features of Python? ",
       "type": "MCQ",
       "language": "Python",
       "options": {
@@ -376,8 +369,8 @@
     },
     {
       "id": 34,
-      "page": "7",
-      "question": "On a scale of 1 to 5 how would you rate the concurrency features of R? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the concurrency features of R? ",
       "type": "MCQ",
       "language": "R",
       "options": {
@@ -390,8 +383,8 @@
     },
     {
       "id": 35,
-      "page": "7",
-      "question": "On a scale of 1 to 5 how would you rate the concurrency features of Java? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the concurrency features of Java? ",
       "type": "MCQ",
       "language": "Java",
       "options": {
@@ -404,8 +397,8 @@
     },
     {
       "id": 36,
-      "page": "8",
-      "question": "On a scale of 1 to 5 how would you rate the readability of Python? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the readability of Python? ",
       "type": "MCQ",
       "language": "Python",
       "options": {
@@ -418,8 +411,8 @@
     },
     {
       "id": 37,
-      "page": "8",
-      "question": "On a scale of 1 to 5 how would you rate the readability of R? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the readability of R? ",
       "type": "MCQ",
       "language": "R",
       "options": {
@@ -432,8 +425,8 @@
     },
     {
       "id": 38,
-      "page": "8",
-      "question": "On a scale of 1 to 5 how would you rate the readability of Java? ",
+      "page": "5",
+      "question": "On a scale of 1 to 5 how would you rate the readability of Java? ",
       "type": "MCQ",
       "language": "Java",
       "options": {
@@ -446,8 +439,8 @@
     },
     {
       "id": 39,
-      "page": "9",
-      "question": "On a scale of 1-5 how often do you seek help from online resources (excluding official documentation)? ",
+      "page": "6",
+      "question": "On a scale of 1-5 how often do you seek help from online resources (excluding official documentation)? ",
       "type": "MCQ",
       "language": "any",
       "options": {
@@ -460,24 +453,24 @@
     },
     {
       "id": 40,
-      "page": "9",
-      "question": "Which language do you think will dominate the job market in the next 5 years? ",
+      "page": "6",
+      "question": "Which language do you think will dominate the job market in the next 5 years? ",
       "type": "categorical",
       "language": "any",
       "options": ["Python", "R", "Java"]
     },
     {
       "id": 41,
-      "page": "9",
-      "question": "If you could only use one of these three languages for all future projects, which would you choose and why? 樂",
+      "page": "6",
+      "question": "If you could only use one of these three languages for all future projects, which would you choose and why? ",
       "type": "categorical",
       "language": "any",
       "options": ["Python", "R", "Java"]
     },
     {
       "id": 42,
-      "page": "9",
-      "question": "Thank you for filling out our form! ",
+      "page": "6",
+      "question": "Thank you for filling out our form! <3",
       "type": "text",
       "language": "any"
     }
